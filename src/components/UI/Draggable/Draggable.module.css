@@ -1,0 +1,13 @@
+.draggable {
+  position: absolute;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .26);
+  z-index: 5;
+  overflow: hidden;
+}
+
+.draggable:hover {
+  cursor: move;
+}

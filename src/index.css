@@ -17,10 +17,3 @@ code {
   padding: 0;
   box-sizing: border-box;
 }
-
-@media print {
-.no-print,
-  .no-print * {
-    display: none !important;
-  }
-}

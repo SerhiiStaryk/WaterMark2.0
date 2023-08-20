@@ -1,0 +1,20 @@
+.button-round {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #48abe0;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 31px;
+  box-shadow: 0 2px 4px darkslategray;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 10px;
+}
+
+button:active {
+  background-color: #48abe0;
+  box-shadow: 0 0 2px darkslategray;
+  transform: translateY(2px);
+}

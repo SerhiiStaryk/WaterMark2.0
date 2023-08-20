@@ -1,17 +1,31 @@
 import './Sidebar.css';
-import Input from './Input/Input';
+import { useState } from 'react';
 import Toggle from './Toggle/Toggle';
 import InputFile from './InputFile/InputFile';
 import { slide as Menu } from 'react-burger-menu';
+import InputNumber from './InputNumber/InputNumber';
 import SelectContainer from './SelectContainer/SelectContainer';
-import { useState } from 'react';
 
-const Sidebar = ({ options, selectedOption, onChange, defaultValue }) => {
-  const [value, setValue] = useState(true);
-  // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
+const Sidebar = ({
+  options,
+  defaultValue,
+  draggableSize,
+  showDraggable,
+  selectedOption,
+  selectedFileName,
+
+  onChange,
+  onShowDraggable,
+  onChangeBackground,
+  onChangeDraggableSize,
+
+}) => {
   return (
     <Menu>
-      <InputFile />
+      <InputFile
+        selectedFileName={selectedFileName}
+        onChangeBackground={onChangeBackground}
+      />
 
       <SelectContainer
         options={options}
@@ -21,19 +35,25 @@ const Sidebar = ({ options, selectedOption, onChange, defaultValue }) => {
       />
 
       <Toggle
-        isOn={value}
+        isOn={showDraggable}
         onColor="#0077ff"
-        handleToggle={() => setValue(!value)}
+        handleToggle={onShowDraggable}
       />
 
-      <Input
+      <InputNumber
+        name='width'
+        type='number'
         label='With label card (cm)'
-        type='number'
+        value={draggableSize.width}
+        onChangeDraggableSize={onChangeDraggableSize}
       />
 
-      <Input
-        label='Height label card (cm)'
+      <InputNumber
+        name='height'
         type='number'
+        label='Height label card (cm)'
+        value={draggableSize.height}
+        onChangeDraggableSize={onChangeDraggableSize}
       />
     </Menu>
   );

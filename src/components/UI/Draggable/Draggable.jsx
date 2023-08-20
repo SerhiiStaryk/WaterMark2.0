@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import classes from './Draggable.module.css';
 
-const Draggable = ({ draggableSize, parentWidthInCm, parentHeightInCm, children }) => {
+const Draggable = (
+  {
+    children,
+    draggableSize,
+    parentWidthInCm,
+    parentHeightInCm,
+  }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });

@@ -1,17 +1,6 @@
 import classes from './Page.module.css';
-import { useState } from 'react';
 
-const Page = ({ state, children }) => {
-  const [imageSourse, setImageSrc] = useState('')
-  // console.log(imageSourse)
-
-  const changeBackgroundHandler =  (e) => {
-    const url = URL.createObjectURL(e.target.files[0]);
-    setImageSrc(url)
-  }
-
-  console.log('page state:', state);
-
+const Page = ({ state, children, imageSourse }) => {
   return (
     <>
       <div

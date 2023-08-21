@@ -1,7 +1,6 @@
 import classes from './Page.module.css';
 
-const Page = ({ state, children, imageSourse }) => {
-  return (
+const Page = ({ state, children, imageSourse }) => (
     <>
       <div
         className={classes.page}
@@ -16,6 +15,5 @@ const Page = ({ state, children, imageSourse }) => {
       </div>
     </>
   );
-}
 
 export default Page;

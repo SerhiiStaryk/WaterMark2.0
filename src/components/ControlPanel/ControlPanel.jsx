@@ -1,7 +1,9 @@
 import classes from './ControlPanel.module.css';
-import Button from '../UI/Button/Button';
-import { BiPrinter, BiRotateLeft } from "react-icons/bi";
+
 import ReactToPrint from 'react-to-print';
+import { BiPrinter, BiRotateLeft } from "react-icons/bi";
+
+import Button from '../UI/Button/Button';
 
 const ControlPanel = ({ onPrint, componentRef }) => {
   return (

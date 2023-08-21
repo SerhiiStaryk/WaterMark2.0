@@ -16,18 +16,18 @@
   cursor: pointer;
 }
 
-.file-upload h3 {
+.file-name {
   color: #444;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.file-upload img {
+.upload-img {
   width: 60px;
 }
 
-.file-upload input {
+.file {
   display: block;
   height: 100%;
   width: 100%;

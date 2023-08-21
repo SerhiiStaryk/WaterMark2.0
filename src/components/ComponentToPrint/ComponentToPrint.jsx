@@ -1,10 +1,11 @@
 import React from 'react';
+
 import Page from '../Page/Page';
-import Draggable from '../UI/Draggable/Draggable';
 import Editor from '../Editor/Editor';
+import Draggable from '../UI/Draggable/Draggable';
 
 const ComponentToPrint = React.forwardRef((props, ref) => {
-  const { pageSize, imageSourse, showDraggable, draggableSize } = props.printSettings
+  const { pageSize, imageSourse, showDraggable, draggableSize } = props.printSettings;
 
   return (
     <div ref={ref}>
@@ -16,7 +17,7 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
               parentWidthInCm={pageSize.width}
               parentHeightInCm={pageSize.height}
             >
-              <Editor />
+              <Editor value={props.templete}/>
             </Draggable>
           }
         </div>

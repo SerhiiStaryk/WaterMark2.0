@@ -44,10 +44,10 @@ const Draggable = (
     <div
       className={classes.draggable}
       style={{
+        top: `${position.y}cm`,
+        left: `${position.x}cm`,
         width: `${draggableSize.width}cm`,
         height: `${draggableSize.height}cm`,
-        left: `${position.x}cm`,
-        top: `${position.y}cm`,
       }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}

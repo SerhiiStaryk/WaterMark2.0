@@ -1,20 +1,21 @@
 import './Sidebar.css';
-import { useState } from 'react';
+import { slide as Menu } from 'react-burger-menu';
+
 import Toggle from './Toggle/Toggle';
 import InputFile from './InputFile/InputFile';
-import { slide as Menu } from 'react-burger-menu';
 import InputNumber from './InputNumber/InputNumber';
 import SelectContainer from './SelectContainer/SelectContainer';
 
 const Sidebar = ({
-  options,
-  defaultValue,
+  pageOptions,
+  templeteOptions,
   draggableSize,
   showDraggable,
-  selectedOption,
+  selectedPage,
+  selectedTemplete,
   selectedFileName,
-
-  onChange,
+  onChangePage,
+  onChangeTemplete,
   onShowDraggable,
   onChangeBackground,
   onChangeDraggableSize,
@@ -28,10 +29,15 @@ const Sidebar = ({
       />
 
       <SelectContainer
-        options={options}
-        onChange={onChange}
-        defaultValue={defaultValue}
-        selectedOption={selectedOption}
+        options={pageOptions}
+        onChange={onChangePage}
+        selectedOption={selectedPage}
+      />
+
+      <SelectContainer
+        options={templeteOptions}
+        onChange={onChangeTemplete}
+        selectedOption={selectedTemplete}
       />
 
       <Toggle
@@ -44,6 +50,7 @@ const Sidebar = ({
         name='width'
         type='number'
         label='With label card (cm)'
+        isOn={showDraggable}
         value={draggableSize.width}
         onChangeDraggableSize={onChangeDraggableSize}
       />
@@ -52,6 +59,7 @@ const Sidebar = ({
         name='height'
         type='number'
         label='Height label card (cm)'
+        isOn={showDraggable}
         value={draggableSize.height}
         onChangeDraggableSize={onChangeDraggableSize}
       />

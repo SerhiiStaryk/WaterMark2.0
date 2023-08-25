@@ -12,3 +12,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #ccc;
 }
+
+/* Editor */
+.cdx-block {
+  padding: 0 !important;
+}
+
+.codex-editor__redactor{
+padding-bottom: 15px !important;
+}

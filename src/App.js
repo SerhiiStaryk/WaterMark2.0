@@ -8,15 +8,20 @@ import ControlPanel from './components/ControlPanel/ControlPanel';
 import ComponentToPrint from './components/ComponentToPrint/ComponentToPrint';
 
 const App = () => {
-  const initialDraggableSize = { width: 10, height: 5 }
+  const initialState = {
+    imageSourse: null,
+    showDraggable: true,
+    selectedFileName: '',
+    pageSize: PAGE_OPTIONS[3],
+    initialDraggableSize: { width: 11, height: 5 },
+  }
 
-  const [selectedPage, setSelectedPage] = useState(PAGE_OPTIONS[3]);
+  const [imageSourse, setImageSrc] = useState(initialState.imageSourse);
+  const [selectedPage, setSelectedPage] = useState(initialState.pageSize);
   const [selectedTemplete, setSelectedTemplete] = useState(TEMPLETE_OPTIONS[0]);
-
-  const [draggableSize, setDraggableSize] = useState(initialDraggableSize);
-  const [showDraggable, setShowDraggable] = useState(true);
-  const [imageSourse, setImageSrc] = useState(null);
-  const [selectedFileName, setSelectedFileName] = useState('');
+  const [showDraggable, setShowDraggable] = useState(initialState.showDraggable);
+  const [draggableSize, setDraggableSize] = useState(initialState.initialDraggableSize);
+  const [selectedFileName, setSelectedFileName] = useState(initialState.selectedFileName);
 
   const componentRef = useRef({ pageSize: selectedPage.value, imageSourse, showDraggable, draggableSize });
 
@@ -44,6 +49,7 @@ const App = () => {
   }
 
   const handleChangeTemplete = (selectedOption) => {
+    //templete or template
     setSelectedTemplete(selectedOption);
     setShowDraggable(false)
   }

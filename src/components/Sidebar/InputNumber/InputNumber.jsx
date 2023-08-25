@@ -4,12 +4,10 @@ const InputNumber = ({ isOn, name, label, value, onChangeDraggableSize }) => (
   <div className={classes['form-group']}>
     <label htmlFor={name}>{label}</label>
     <input
-      type='number'
+      type='string'
       id={name}
       name={name}
-      value={value}
-      min={5}
-      max={20}
+      value={value || ''}
       className={classes.input}
       onChange={(e) => onChangeDraggableSize(e.target.value, name)}
       disabled={!isOn}

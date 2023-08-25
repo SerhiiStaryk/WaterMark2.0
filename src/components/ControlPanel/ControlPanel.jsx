@@ -1,16 +1,16 @@
 import classes from './ControlPanel.module.css';
 
 import ReactToPrint from 'react-to-print';
-import { BiPrinter, BiRotateLeft } from "react-icons/bi";
+import { BiPrinter } from "react-icons/bi";
 
 import Button from '../UI/Button/Button';
 
 const ControlPanel = ({ onPrint, componentRef }) => {
   return (
     <div className={classes['control-panel']}>
-      <Button>
+      {/* <Button>
         <BiRotateLeft style={{ width: '25px', height: '25px', color: '#fff' }} />
-      </Button>
+      </Button> */}
 
       <ReactToPrint
         trigger={() => (

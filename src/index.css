@@ -21,3 +21,7 @@ body {
 .codex-editor__redactor{
 padding-bottom: 15px !important;
 }
+
+.ce-paragraph {
+  font-size: 13px !important;
+}

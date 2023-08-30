@@ -17,7 +17,7 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
               parentWidthInCm={pageSize.width}
               parentHeightInCm={pageSize.height}
             >
-              <Editor value={props.templete}/>
+              <Editor value={props.template}/>
             </Draggable>
           }
         </div>

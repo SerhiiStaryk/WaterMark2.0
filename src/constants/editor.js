@@ -1,4 +1,4 @@
-export const _2000_TEMPLETE = {
+export const _2000_TEMPLATE = {
   blocks: [
     {
       id: "1",
@@ -38,7 +38,7 @@ export const _2000_TEMPLETE = {
   ]
 }
 
-export const _500_TEMPLETE = {
+export const _500_TEMPLATE = {
   blocks: [
     {
       id: "1",
@@ -78,7 +78,7 @@ export const _500_TEMPLETE = {
   ]
 }
 
-export const _500_TEMPLETE_CAD = {
+export const _500_TEMPLATE_CAD = {
   blocks: [
     {
       id: "1",
@@ -125,8 +125,8 @@ export const _500_TEMPLETE_CAD = {
   ]
 }
 
-export const TEMPLETE_OPTIONS = [
-  { label: '500', value: _500_TEMPLETE },
-  { label: '500_CAD', value: _500_TEMPLETE_CAD },
-  { label: '2000', value: _2000_TEMPLETE },
+export const TEMPLATE_OPTIONS = [
+  { label: '500', value: _500_TEMPLATE },
+  { label: '500_CAD', value: _500_TEMPLATE_CAD },
+  { label: '2000', value: _2000_TEMPLATE },
 ]

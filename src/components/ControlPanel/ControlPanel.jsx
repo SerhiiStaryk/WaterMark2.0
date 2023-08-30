@@ -1,23 +1,25 @@
 import classes from './ControlPanel.module.css';
 
 import ReactToPrint from 'react-to-print';
-import { BiPrinter } from "react-icons/bi";
+import { BiPrinter, BiRotateLeft } from "react-icons/bi";
 
 import Button from '../UI/Button/Button';
 
-const ControlPanel = ({ onPrint, componentRef }) => {
+const ControlPanel = ({ onPrint, onResetApp, componentRef }) => {
+  const renderButtonPrint = (onPrint) => (
+    <Button onClick={onPrint}>
+      <BiPrinter className={classes.btn} />
+    </Button>
+  )
+
   return (
     <div className={classes['control-panel']}>
-      {/* <Button>
-        <BiRotateLeft style={{ width: '25px', height: '25px', color: '#fff' }} />
-      </Button> */}
+      <Button onClick={onResetApp}>
+        <BiRotateLeft className={classes.btn} />
+      </Button>
 
       <ReactToPrint
-        trigger={() => (
-          <Button onClick={onPrint}>
-            <BiPrinter style={{ width: '25px', height: '25px', color: '#fff' }} />
-          </Button>
-        )}
+        trigger={() => renderButtonPrint(onPrint)}
         content={() => componentRef.current}
       />
     </div>

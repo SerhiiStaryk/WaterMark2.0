@@ -8,14 +8,14 @@ import SelectContainer from './SelectContainer/SelectContainer';
 
 const Sidebar = ({
   pageOptions,
-  templeteOptions,
+  selectedPage,
   draggableSize,
   showDraggable,
-  selectedPage,
-  selectedTemplete,
+  templateOptions,
+  selectedTemplate,
   selectedFileName,
   onChangePage,
-  onChangeTemplete,
+  onChangeTemplate,
   onShowDraggable,
   onChangeBackground,
   onChangeDraggableSize,
@@ -35,9 +35,9 @@ const Sidebar = ({
       />
 
       <SelectContainer
-        options={templeteOptions}
-        onChange={onChangeTemplete}
-        selectedOption={selectedTemplete}
+        options={templateOptions}
+        onChange={onChangeTemplate}
+        selectedOption={selectedTemplate}
       />
 
       <Toggle

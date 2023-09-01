@@ -1,14 +1,21 @@
 import classes from './ControlPanel.module.css';
 
+import Pdf from "react-to-pdf";
 import ReactToPrint from 'react-to-print';
-import { BiPrinter, BiRotateLeft } from "react-icons/bi";
+import { BiPrinter, BiRotateLeft, BiSolidFilePdf } from "react-icons/bi";
 
 import Button from '../UI/Button/Button';
 
-const ControlPanel = ({ onPrint, onResetApp, componentRef }) => {
+const ControlPanel = ({ onPrint, onResetApp, componentRef, options }) => {
   const renderButtonPrint = (onPrint) => (
     <Button onClick={onPrint}>
       <BiPrinter className={classes.btn} />
+    </Button>
+  )
+
+  const renderButtonSaveToPdf = (onClick) => (
+    <Button onClick={onClick}>
+      <BiSolidFilePdf className={classes.btn} />
     </Button>
   )
 
@@ -17,6 +24,10 @@ const ControlPanel = ({ onPrint, onResetApp, componentRef }) => {
       <Button onClick={onResetApp}>
         <BiRotateLeft className={classes.btn} />
       </Button>
+
+      <Pdf targetRef={componentRef} filename="water-mark-copy.pdf" options={options}>
+        {({ toPdf }) => renderButtonSaveToPdf(toPdf)}
+      </Pdf>
 
       <ReactToPrint
         trigger={() => renderButtonPrint(onPrint)}

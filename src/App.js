@@ -16,6 +16,11 @@ const App = () => {
     pageSize: PAGE_OPTIONS[3],
     selectedTemplate: TEMPLATE_OPTIONS[0],
     draggableSize: { width: 9, height: 4 },
+    optionForPdf: {
+      orientation: 'landscape',
+      unit: 'cm',
+      format: [21, 29.7]
+    }
   }
 
   const [state, setState] = useState(initialState)
@@ -58,9 +63,18 @@ const App = () => {
   };
 
   const changePageHandler = (selectedOption) => {
+    const { label, value } = selectedOption;
+
+    const newOptionForPdf = {
+      orientation: label.includes('landscape') ? 'landscape' : 'portrait',
+      unit: 'cm',
+      format: [value.height, value.width]
+    }
+
     setState(prev => ({
       ...prev,
-      pageSize: selectedOption
+      pageSize: selectedOption,
+      optionForPdf: newOptionForPdf,
     }))
   };
 
@@ -111,6 +125,7 @@ const App = () => {
       <Footer />
 
       <ControlPanel
+        options={state.optionForPdf}
         componentRef={componentRef}
         onPrint={printHandler}
         onResetApp={resetAppHandler}

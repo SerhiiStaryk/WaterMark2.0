@@ -1,8 +1,8 @@
 .control-panel {
   right: 40px;
-  width: 120px;
+  width: 80px;
   bottom: 40px;
-  height: 200px;
+  height: 245px;
   position: absolute;
   flex-direction: column;
 }

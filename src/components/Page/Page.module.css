@@ -1,6 +1,6 @@
 .page {
   display: block;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   position: relative;
   border: 1px solid #c2c2c2;
 }

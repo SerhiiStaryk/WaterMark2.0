@@ -1,23 +1,26 @@
 import classes from './Modal.module.css';
-import Card from '../Card/Card';
-import Button from '../Button/Button';
 
-const Modal = (props) => {
-  return (
-    <div className={classes.backdrop} onClick={props.onHideModule}>
-      <Card className={classes.modal}>
-        <header className={classes.header}>
-          {props.title}
-        </header>
-        <main className={classes.content}>
-          {props.children}
-        </main>
-        <footer className={classes}>
-          <Button onClick={props.onHideModule}>Cancel</Button>
-        </footer>
-      </Card>
+import ReactDOM from 'react-dom';
+
+const Backdrop = ({ onClose }) => (
+  <div className={classes.backdrop} onClick={onClose} />
+);
+
+const ModalOverlay = ({ children }) => (
+  <div className={classes.modal}>
+    <div className={classes.content}>
+      {children}
     </div>
-  );
-}
+  </div>
+);
+
+const portalElement = document.getElementById('overlay');
+
+const Modal = ({ onClose, children }) => (
+  <>
+    {ReactDOM.createPortal(<Backdrop onClose={onClose} />, portalElement)}
+    {ReactDOM.createPortal(<ModalOverlay>{children}</ModalOverlay>, portalElement)}
+  </>
+);
 
 export default Modal;

@@ -1,0 +1,91 @@
+.editor-wrapper {
+  background: #fff;
+}
+
+.editor-container {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.editor-container::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+.editor-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+}
+
+.editor-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #e4e4e4;
+  background: linear-gradient(to left, #fff, #e4e4e4);
+  border: 1px solid #aaa;
+}
+
+.editor-container::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+.editor-container::-webkit-scrollbar-thumb:active {
+  background: #1E98BA;
+  background: linear-gradient(to left, #22ADD4, #1E98BA);
+}
+
+.toolbar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 1fr 1fr;
+}
+
+button {
+  margin-right: 8px;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.superFancyBlockquote {
+  color: #999;
+  background: #fff;
+  font-family: "Hoefler Text", Georgia, serif;
+  font-style: italic;
+  border-left: 2px solid #999;
+  padding-left: 10px;
+}
+
+.codeBlock {
+  font-family: fira-code, monospace;
+  font-size: inherit;
+  background: #ffeff0;
+  font-style: italic;
+  word-wrap: normal;
+  word-wrap: break-word;
+  box-decoration-break: slice;
+  padding: 0.3rem 2rem;
+  border-radius: 0.2rem;
+}
+
+.leftAlign {
+  text-align: left;
+}
+
+.rightAlign {
+  text-align: right;
+}
+
+.centerAlign {
+  text-align: center;
+}
+
+.justifyAlign {
+  text-align: justify;
+}

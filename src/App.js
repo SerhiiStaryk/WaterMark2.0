@@ -3,27 +3,32 @@ import { useRef, useState } from 'react';
 import { PAGE_OPTIONS } from './constants/page';
 import { TEMPLATE_OPTIONS } from './constants/editor'
 
+import Footer from './components/Footer/Footer';
+import Modal from './components/UI/Modal/Modal';
 import Sidebar from './components/Sidebar/Sidebar';
 import ControlPanel from './components/ControlPanel/ControlPanel';
 import ComponentToPrint from './components/ComponentToPrint/ComponentToPrint';
-import Footer from './components/Footer/Footer';
+import DraftEditor from './components/DraftEditor/DraftEditor';
+import { createEditorState } from './helpers/editor';
 
 const App = () => {
   const initialState = {
+    showEditor: false,
     imageSourse: null,
-    showDraggable: false,
+    showDraggable: true,
     selectedFileName: '',
     pageSize: PAGE_OPTIONS[3],
     selectedTemplate: TEMPLATE_OPTIONS[0],
-    draggableSize: { width: 9, height: 4 },
+    draggableSize: { width: 8, height: 4 },
     optionForPdf: {
       orientation: 'landscape',
       unit: 'cm',
       format: [21, 29.7]
-    }
+    },
+    content: createEditorState(TEMPLATE_OPTIONS[0].value)
   }
 
-  const [state, setState] = useState(initialState)
+  const [state, setState] = useState(initialState);
 
   const printSettings = {
     pageSize: state.pageSize.value,
@@ -81,24 +86,46 @@ const App = () => {
   const changeTemplateHandler = (selectedOption) => {
     setState(prev => ({
       ...prev,
-      showDraggable: false,
+      content: createEditorState(selectedOption.value),
       selectedTemplate: selectedOption
     }))
   };
 
   const resetAppHandler = () => {
-    setState({
-      ...initialState,
-      showDraggable: false,
-    })
+    setState(initialState)
   }
 
   const printHandler = () => {
     window.print();
   };
 
+  const triggerModal = () => {
+    setState(prev => ({
+      ...prev,
+      showEditor: !prev.showEditor
+    }))
+  }
+
+  const setContentHtmlHandler = (content) => {
+    setState(prev => ({
+      ...prev,
+      content
+    }))
+  }
+
   return (
     <>
+      {
+        state.showEditor &&
+        <Modal onClose={triggerModal}>
+          <DraftEditor
+            //TODO: need to get currunt state
+              editorState={state.content}
+              setEditorState={setContentHtmlHandler}
+          />
+        </Modal>
+      }
+
       <Sidebar
         pageOptions={PAGE_OPTIONS}
         templateOptions={TEMPLATE_OPTIONS}
@@ -119,6 +146,7 @@ const App = () => {
           ref={componentRef}
           printSettings={printSettings}
           template={state.selectedTemplate.value}
+          content={state.content}
         />
       </div>
 
@@ -129,6 +157,7 @@ const App = () => {
         componentRef={componentRef}
         onPrint={printHandler}
         onResetApp={resetAppHandler}
+        onEdit={triggerModal}
       />
     </>
   );

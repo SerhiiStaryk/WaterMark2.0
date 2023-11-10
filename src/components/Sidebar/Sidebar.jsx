@@ -11,12 +11,14 @@ const Sidebar = ({
   selectedPage,
   draggableSize,
   showDraggable,
+  showWatermark,
   templateOptions,
   selectedTemplate,
   selectedFileName,
   onChangePage,
-  onChangeTemplate,
   onShowDraggable,
+  onShowWaterMark,
+  onChangeTemplate,
   onChangeBackground,
   onChangeDraggableSize,
 
@@ -29,39 +31,54 @@ const Sidebar = ({
       />
 
       <SelectContainer
+        label='Формат аркушу:'
         options={pageOptions}
         onChange={onChangePage}
         selectedOption={selectedPage}
       />
 
-      <SelectContainer
-        options={templateOptions}
-        onChange={onChangeTemplate}
-        selectedOption={selectedTemplate}
+      <Toggle
+        id='draggable-togle'
+        isOn={showDraggable}
+        onChange={onShowDraggable}
+        labelOn='Показати картку'
+        labelOff='Приховати картку'
       />
+
+      {
+        showDraggable &&
+        <>
+          <SelectContainer
+            label='Формат аркушу:'
+            options={templateOptions}
+            onChange={onChangeTemplate}
+            selectedOption={selectedTemplate}
+          />
+
+          <InputNumber
+            name='width'
+            type='number'
+            label='Ширина картки (см)'
+            value={draggableSize.width}
+            onChangeDraggableSize={onChangeDraggableSize}
+          />
+
+          <InputNumber
+            name='height'
+            type='number'
+            label='Висота картки (см)'
+            value={draggableSize.height}
+            onChangeDraggableSize={onChangeDraggableSize}
+          />
+        </>
+      }
 
       <Toggle
-        isOn={showDraggable}
-        onColor="#0077ff"
-        handleToggle={onShowDraggable}
-      />
-
-      <InputNumber
-        name='width'
-        type='number'
-        label='With label card (cm)'
-        isOn={showDraggable}
-        value={draggableSize.width}
-        onChangeDraggableSize={onChangeDraggableSize}
-      />
-
-      <InputNumber
-        name='height'
-        type='number'
-        label='Height label card (cm)'
-        isOn={showDraggable}
-        value={draggableSize.height}
-        onChangeDraggableSize={onChangeDraggableSize}
+        id='water-wark-toggle'
+        isOn={showWatermark}
+        onChange={onShowWaterMark}
+        labelOn='Показати водяний знак'
+        labelOff='Приховати водяний знак'
       />
     </Menu>
   );

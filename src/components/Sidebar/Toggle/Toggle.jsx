@@ -1,20 +1,32 @@
 import './Toggle.css'
 
-const Toggle = ({ isOn, handleToggle, onColor }) => {
+const Toggle = (props) => {
+  const {
+    id,
+    isOn,
+    labelOn,
+    labelOff,
+    onChange,
+  } = props;
+
+  let label = labelOff;
+
+  if (!isOn) label = labelOn;
+
   return (
     <div className='form-group'>
-      <label>Show Information card</label>
+      <label>{label}:</label>
       <input
+        id={id}
         checked={isOn}
-        onChange={handleToggle}
-        className="react-switch-checkbox"
-        id={`react-switch-new`}
         type="checkbox"
+        onChange={onChange}
+        className="react-switch-checkbox"
       />
       <label
-        style={{ background: isOn && onColor }}
+        htmlFor={id}
+        style={{ background: isOn && '#48abe0' }}
         className="react-switch-label"
-        htmlFor={`react-switch-new`}
       >
         <span className={`react-switch-button`} />
       </label>

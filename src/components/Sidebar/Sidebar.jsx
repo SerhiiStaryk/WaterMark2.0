@@ -31,7 +31,7 @@ const Sidebar = ({
       />
 
       <SelectContainer
-        label='Формат аркушу:'
+        label='Формат аркуша:'
         options={pageOptions}
         onChange={onChangePage}
         selectedOption={selectedPage}
@@ -49,7 +49,7 @@ const Sidebar = ({
         showDraggable &&
         <>
           <SelectContainer
-            label='Формат аркушу:'
+            label='Шаблон картки:'
             options={templateOptions}
             onChange={onChangeTemplate}
             selectedOption={selectedTemplate}

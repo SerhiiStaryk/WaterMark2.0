@@ -8,24 +8,24 @@ import Button from '../UI/Button/Button';
 
 const ControlPanel = ({ onPrint, onResetApp, componentRef, options, onEdit }) => {
   const renderButtonPrint = (onPrint) => (
-    <Button onClick={onPrint}>
+    <Button title='Друк сторінки' onClick={onPrint}>
       <BiPrinter className={classes.btn} />
     </Button>
   )
 
   const renderButtonSaveToPdf = (onClick) => (
-    <Button onClick={onClick}>
+    <Button title='Зберегти у PDF' onClick={onClick}>
       <BiSolidFilePdf className={classes.btn} />
     </Button>
   )
 
   return (
     <div className={classes['control-panel']}>
-      <Button onClick={onResetApp}>
+      <Button title='Оновити' onClick={onResetApp}>
         <BiRotateLeft className={classes.btn} />
       </Button>
 
-      <Button onClick={onEdit}>
+      <Button title='Змінити картку' onClick={onEdit}>
         <BiPencil className={classes.btn} />
       </Button>
 

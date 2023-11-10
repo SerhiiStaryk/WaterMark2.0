@@ -2,18 +2,28 @@ import classes from './SelectContainer.module.css';
 
 import Select from 'react-select';
 
-const SelectContainer = ({ options, selectedOption, onChange, defaultValue }) => (
-  <div className={classes['form-group']}>
-    <label>Select page format:</label>
-    <Select
-      options={options}
-      className='select'
-      onChange={onChange}
-      value={selectedOption}
-      defaultValue={defaultValue}
-    />
-  </div>
-);
+const SelectContainer = (props) => {
+  const {
+    label,
+    options,
+    onChange,
+    defaultValue,
+    selectedOption,
+  } = props;
+
+  return (
+    <div className={classes['form-group']}>
+      <label>{label}</label>
+      <Select
+        options={options}
+        className='select'
+        onChange={onChange}
+        value={selectedOption}
+        defaultValue={defaultValue}
+      />
+    </div>
+  )
+};
 
 
 export default SelectContainer;

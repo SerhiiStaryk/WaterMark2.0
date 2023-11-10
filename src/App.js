@@ -16,6 +16,7 @@ const App = () => {
     showEditor: false,
     imageSourse: null,
     showDraggable: true,
+    showWatermark: true,
     selectedFileName: '',
     pageSize: PAGE_OPTIONS[3],
     selectedTemplate: TEMPLATE_OPTIONS[0],
@@ -53,6 +54,13 @@ const App = () => {
     setState(prev => ({
       ...prev,
       showDraggable: !prev.showDraggable
+    }))
+  };
+
+  const showWaterMarkHandler = () => {
+    setState(prev => ({
+      ...prev,
+      showWatermark: !prev.showWatermark
     }))
   };
 
@@ -120,8 +128,8 @@ const App = () => {
         <Modal onClose={triggerModal}>
           <DraftEditor
             //TODO: need to get currunt state
-              editorState={state.content}
-              setEditorState={setContentHtmlHandler}
+            editorState={state.content}
+            setEditorState={setContentHtmlHandler}
           />
         </Modal>
       }
@@ -131,24 +139,27 @@ const App = () => {
         templateOptions={TEMPLATE_OPTIONS}
         selectedPage={state.pageSize}
         showDraggable={state.showDraggable}
+        showWatermark={state.showWatermark}
         draggableSize={state.draggableSize}
         selectedTemplate={state.selectedTemplate}
         selectedFileName={state.selectedFileName}
         onChangePage={changePageHandler}
         onShowDraggable={showDraggableHandler}
+        onShowWaterMark={showWaterMarkHandler}
         onChangeTemplate={changeTemplateHandler}
         onChangeBackground={changeBackgroundHandler}
         onChangeDraggableSize={changeDraggableSizeHandler}
       />
 
-      <div style={{ padding: '20px 0 0 100px' }}>
+      <main className='main'>
         <ComponentToPrint
           ref={componentRef}
-          printSettings={printSettings}
-          template={state.selectedTemplate.value}
           content={state.content}
+          printSettings={printSettings}
+          showWatermark={state.showWatermark}
+          template={state.selectedTemplate.value}
         />
-      </div>
+      </main>
 
       <Footer />
 

@@ -1,7 +1,7 @@
 import {
   EditorState,
-  convertFromRaw,
   convertToRaw,
+  convertFromRaw,
 } from "draft-js";
 import { stateToHTML } from 'draft-js-export-html';
 

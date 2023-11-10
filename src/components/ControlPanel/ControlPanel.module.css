@@ -3,7 +3,7 @@
   width: 80px;
   bottom: 40px;
   height: 320px;
-  position: absolute;
+  position: fixed;
   flex-direction: column;
 }
 

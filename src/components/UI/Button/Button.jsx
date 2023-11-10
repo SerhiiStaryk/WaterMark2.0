@@ -1,10 +1,10 @@
 import classes from './Button.module.css';
 
-const Button = ({ children, onClick }) => (
+const Button = ({ children, ...props }) => (
   <button
     type='button'
     className={classes['button-round']}
-    onClick={onClick}
+    {...props}
   >
     {children}
   </button>

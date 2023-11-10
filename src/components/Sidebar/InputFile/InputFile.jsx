@@ -10,7 +10,7 @@ const InputFile = ({ onChangeBackground, selectedFileName }) => (
         className={classes['upload-img']}
       />
       <h3 className={classes['file-name']}>
-        {selectedFileName || "Click box to upload"}
+        {selectedFileName || "Вибрати файл:"}
       </h3>
       <input
         type="file"

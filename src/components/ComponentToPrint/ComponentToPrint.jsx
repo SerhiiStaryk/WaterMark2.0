@@ -6,6 +6,8 @@ import Draggable from '../UI/Draggable/Draggable';
 import ReactHtmlParser from 'react-html-parser';
 import { convertEditorStateToHtml } from '../../helpers/editor';
 
+import classes from './ComponentToPrint.module.css';
+
 const ComponentToPrint = React.forwardRef((props, ref) => {
   const {
     pageSize,
@@ -17,7 +19,7 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
   const htmlContent = convertEditorStateToHtml(props.content)
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div  className={classes.componentToPrintWrapper}>
       <div ref={ref}>
         <Page
           state={pageSize}

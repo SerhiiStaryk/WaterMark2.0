@@ -1,20 +1,23 @@
 .button-round {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background-color: #48abe0;
-  color: white;
+  background-color: var(--main-color);
   border: none;
-  padding: 5px;
-  font-size: 31px;
-  box-shadow: 0 2px 4px darkslategray;
+  border-radius: 50%;
+  box-shadow: 0 3px 4px var(--color-dark);
+  color: var(--color-white);
   cursor: pointer;
-  transition: all 0.2s ease;
+  font-size: 31px;
+  height: 60px;
+  padding: 5px;
   margin: 10px;
+  transition: all 0.2s ease;
+  width: 60px;
 }
 
-.button:active {
-  background-color: #48abe0;
-  box-shadow: 0 0 2px darkslategray;
-  transform: translateY(2px);
+.button-round:hover {
+  opacity: .8;
+}
+
+.button-round:active {
+  box-shadow: 0 0 2px var(--color-dark);
+  transform: translateY(3px);
 }

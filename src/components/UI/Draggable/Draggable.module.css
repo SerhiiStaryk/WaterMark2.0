@@ -1,9 +1,9 @@
 .draggable {
-  position: absolute;
+  background: #fff;
   border-radius: 10px;
-  background: white;
-  padding: 15px 0 10px 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .26);
+  padding: 15px 0 10px 15px;
+  position: absolute;
   z-index: 5;
   /* Safari */
   -webkit-user-select: none;

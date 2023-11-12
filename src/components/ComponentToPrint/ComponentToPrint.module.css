@@ -1,0 +1,46 @@
+.componentToPrintWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1240px) {
+  .componentToPrintWrapper {
+    zoom: .9;
+  }
+}
+
+@media screen and (max-width: 1135px) {
+  .componentToPrintWrapper {
+    zoom: .8;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .componentToPrintWrapper {
+    zoom: .7;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .componentToPrintWrapper {
+    zoom: .6;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .componentToPrintWrapper {
+    zoom: .5;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .componentToPrintWrapper {
+    zoom: .4;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  .componentToPrintWrapper {
+    zoom: .3;
+  }
+}

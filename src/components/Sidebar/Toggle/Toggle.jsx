@@ -1,4 +1,4 @@
-import './Toggle.css'
+import './Toggle.css';
 
 const Toggle = (props) => {
   const {

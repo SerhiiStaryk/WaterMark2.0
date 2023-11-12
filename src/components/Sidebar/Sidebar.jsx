@@ -24,7 +24,7 @@ const Sidebar = ({
 
 }) => {
   return (
-    <Menu>
+    <Menu className='sidebar'>
       <InputFile
         selectedFileName={selectedFileName}
         onChangeBackground={onChangeBackground}
@@ -80,6 +80,8 @@ const Sidebar = ({
         labelOn='Показати водяний знак'
         labelOff='Приховати водяний знак'
       />
+
+      <p className='sidebar-version-app'>Версія 2.4.0.</p>
     </Menu>
   );
 };

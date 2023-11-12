@@ -1,15 +1,25 @@
 .control-panel {
-  right: 40px;
-  width: 80px;
   bottom: 40px;
+  flex-direction: column;
   height: 320px;
   position: fixed;
-  flex-direction: column;
+  right: 40px;
+  width: 80px;
 }
 
 .btn {
-  margin-top: 9px;
-  color: #fff;
-  width: 30px;
+  color: var(--color-white);
   height: 30px;
+  margin-top: 9px;
+  width: 30px;
+}
+
+/* media */
+@media screen and (max-width: 1005px) {
+  .control-panel {
+    bottom: 30px;
+    height: 320px;
+    right: 10px;
+    width: 80px;
+  }
 }

@@ -11,7 +11,7 @@
 }
 
 .bm-burger-bars-hover {
-  background: #48abe0;
+  background: var(--main-color);
 }
 
 .bm-cross-button {
@@ -20,7 +20,7 @@
 }
 
 .bm-cross {
-  background: #48abe0;
+  background: var(--main-color);
 }
 
 .bm-menu-wrap {

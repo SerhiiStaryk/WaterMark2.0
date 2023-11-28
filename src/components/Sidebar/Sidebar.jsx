@@ -1,10 +1,13 @@
-import './Sidebar.css';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 
 import Toggle from './Toggle/Toggle';
 import InputFile from './InputFile/InputFile';
 import InputNumber from './InputNumber/InputNumber';
 import SelectContainer from './SelectContainer/SelectContainer';
+
+import './Sidebar.css';
 
 const Sidebar = ({
   pageOptions,
@@ -81,7 +84,7 @@ const Sidebar = ({
         labelOff='Приховати водяний знак'
       />
 
-      <p className='sidebar-version-app'>Версія 2.4.0.</p>
+      <p className='sidebar-version-app'>Версія 2.4.1.</p>
     </Menu>
   );
 };

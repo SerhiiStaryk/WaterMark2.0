@@ -1,6 +1,6 @@
 {
   "name": "water-mark",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "homepage": "https://serhiistaryk.github.io/WaterMark2.0",
   "private": true,
   "dependencies": {
@@ -28,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .jsx",
+    "lint:fix": "npm run lint -- --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +51,13 @@
     ]
   },
   "devDependencies": {
+    "eslint": ">=5.16.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.33.2",
     "gh-pages": "^6.0.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/SerhiiStaryk/WaterMark2.0.git",
+  "author": "Serhii Staryk",
+  "license": "MIT"
 }

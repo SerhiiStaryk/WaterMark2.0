@@ -1,45 +1,45 @@
-import React from "react";
-
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { RichUtils } from 'draft-js';
 import {
   FaBold,
-  FaCode,
   FaItalic,
-  FaListOl,
-  FaListUl,
-  FaAlignLeft,
-  FaChevronUp,
-  FaSubscript,
-  FaTextWidth,
   FaUnderline,
-  FaAlignRight,
-  FaQuoteRight,
-  FaAlignCenter,
-  FaChevronDown,
-  FaHighlighter,
-  FaSuperscript,
-  FaStrikethrough,
-} from "react-icons/fa";
-import { RichUtils } from "draft-js";
+  // FaCode,
+  // FaListOl,
+  // FaListUl,
+  // FaAlignLeft,
+  // FaChevronUp,
+  // FaSubscript,
+  // FaTextWidth,
+  // FaAlignRight,
+  // FaQuoteRight,
+  // FaAlignCenter,
+  // FaChevronDown,
+  // FaHighlighter,
+  // FaSuperscript,
+  // FaStrikethrough,
+} from 'react-icons/fa';
 
 const Toolbar = ({ editorState, setEditorState }) => {
   const tools = [
     {
-      label: "bold",
-      style: "BOLD",
+      label: 'bold',
+      style: 'BOLD',
       icon: <FaBold />,
-      method: "inline",
+      method: 'inline',
     },
     {
-      label: "italic",
-      style: "ITALIC",
+      label: 'italic',
+      style: 'ITALIC',
       icon: <FaItalic />,
-      method: "inline",
+      method: 'inline',
     },
     {
-      label: "underline",
-      style: "UNDERLINE",
+      label: 'underline',
+      style: 'UNDERLINE',
       icon: <FaUnderline />,
-      method: "inline",
+      method: 'inline',
     },
     // {
     //   label: "highlight",
@@ -135,13 +135,13 @@ const Toolbar = ({ editorState, setEditorState }) => {
 
   const applyStyle = (e, style, method) => {
     e.preventDefault();
-    method === "block"
+    method === 'block'
       ? setEditorState(RichUtils.toggleBlockType(editorState, style))
       : setEditorState(RichUtils.toggleInlineStyle(editorState, style));
   };
 
   const isActive = (style, method) => {
-    if (method === "block") {
+    if (method === 'block') {
       const selection = editorState.getSelection();
       const blockType = editorState
         .getCurrentContent()
@@ -160,13 +160,13 @@ const Toolbar = ({ editorState, setEditorState }) => {
         <button
           style={{
             color: isActive(item.style, item.method)
-              ? "rgba(0, 0, 0, 1)"
-              : "rgba(0, 0, 0, 0.3)",
+              ? 'rgba(0, 0, 0, 1)'
+              : 'rgba(0, 0, 0, 0.3)',
           }}
           key={`${item.label}-${idx}`}
           title={item.label}
-          onClick={(e) => applyStyle(e, item.style, item.method)}
-          onMouseDown={(e) => e.preventDefault()}
+          onClick={e => applyStyle(e, item.style, item.method)}
+          onMouseDown={e => e.preventDefault()}
         >
           {item.icon || item.label}
         </button>

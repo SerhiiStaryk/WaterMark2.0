@@ -1,4 +1,6 @@
-import { createReactEditorJS } from 'react-editor-js'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { createReactEditorJS } from 'react-editor-js';
 
 const Editor = ({ value }) => {
   const ReactEditorJS = createReactEditorJS();
@@ -8,6 +10,6 @@ const Editor = ({ value }) => {
       data={value}
     />
   );
-}
+};
 
 export default Editor;

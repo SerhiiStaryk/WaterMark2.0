@@ -1,8 +1,10 @@
-import classes from './SelectContainer.module.css';
-
+/* eslint-disable react/prop-types */
+import React from 'react';
 import Select from 'react-select';
 
-const SelectContainer = (props) => {
+import classes from './SelectContainer.module.css';
+
+const SelectContainer = props => {
   const {
     label,
     options,
@@ -22,7 +24,7 @@ const SelectContainer = (props) => {
         defaultValue={defaultValue}
       />
     </div>
-  )
+  );
 };
 
 

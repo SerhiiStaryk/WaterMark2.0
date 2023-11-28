@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
+
 import './Toggle.css';
 
-const Toggle = (props) => {
+const Toggle = props => {
   const {
     id,
     isOn,
@@ -32,6 +35,6 @@ const Toggle = (props) => {
       </label>
     </div>
   );
-}
+};
 
 export default Toggle;

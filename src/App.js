@@ -1,14 +1,15 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { PAGE_OPTIONS } from './constants/page';
-import { TEMPLATE_OPTIONS } from './constants/editor'
+import { TEMPLATE_OPTIONS } from './constants/editor';
 
 import Footer from './components/Footer/Footer';
 import Modal from './components/UI/Modal/Modal';
 import Sidebar from './components/Sidebar/Sidebar';
+import DraftEditor from './components/DraftEditor/DraftEditor';
 import ControlPanel from './components/ControlPanel/ControlPanel';
 import ComponentToPrint from './components/ComponentToPrint/ComponentToPrint';
-import DraftEditor from './components/DraftEditor/DraftEditor';
+
 import { createEditorState } from './helpers/editor';
 
 const App = () => {
@@ -24,10 +25,10 @@ const App = () => {
     optionForPdf: {
       orientation: 'landscape',
       unit: 'cm',
-      format: [21, 29.7]
+      format: [21, 29.7],
     },
-    content: createEditorState(TEMPLATE_OPTIONS[0].value)
-  }
+    content: createEditorState(TEMPLATE_OPTIONS[0].value),
+  };
 
   const [state, setState] = useState(initialState);
 
@@ -36,7 +37,7 @@ const App = () => {
     imageSourse: state.imageSourse,
     showDraggable: state.showDraggable,
     draggableSize: state.draggableSize,
-  }
+  };
 
   const componentRef = useRef(printSettings);
 
@@ -45,63 +46,63 @@ const App = () => {
       ...prev,
       draggableSize: {
         ...prev.draggableSize,
-        [name]: +value
-      }
-    }))
+        [name]: +value,
+      },
+    }));
   };
 
   const showDraggableHandler = () => {
     setState(prev => ({
       ...prev,
-      showDraggable: !prev.showDraggable
-    }))
+      showDraggable: !prev.showDraggable,
+    }));
   };
 
   const showWaterMarkHandler = () => {
     setState(prev => ({
       ...prev,
-      showWatermark: !prev.showWatermark
-    }))
+      showWatermark: !prev.showWatermark,
+    }));
   };
 
-  const changeBackgroundHandler = (e) => {
+  const changeBackgroundHandler = e => {
     const file = e.target.files[0];
     const url = URL.createObjectURL(file);
 
     setState(prev => ({
       ...prev,
       imageSourse: url,
-      selectedFileName: file.name
-    }))
+      selectedFileName: file.name,
+    }));
   };
 
-  const changePageHandler = (selectedOption) => {
+  const changePageHandler = selectedOption => {
     const { label, value } = selectedOption;
 
     const newOptionForPdf = {
       orientation: label.includes('landscape') ? 'landscape' : 'portrait',
       unit: 'cm',
-      format: [value.height, value.width]
-    }
+      format: [value.height, value.width],
+    };
 
     setState(prev => ({
       ...prev,
       pageSize: selectedOption,
       optionForPdf: newOptionForPdf,
-    }))
+    }));
   };
 
-  const changeTemplateHandler = (selectedOption) => {
+  const changeTemplateHandler = selectedOption => {
     setState(prev => ({
       ...prev,
       content: createEditorState(selectedOption.value),
-      selectedTemplate: selectedOption
-    }))
+      selectedTemplate: selectedOption,
+    }));
   };
 
   const resetAppHandler = () => {
-    setState(initialState)
-  }
+    setState(initialState);
+  };
 
   const printHandler = () => {
     window.print();
@@ -110,16 +111,16 @@ const App = () => {
   const triggerModal = () => {
     setState(prev => ({
       ...prev,
-      showEditor: !prev.showEditor
-    }))
-  }
+      showEditor: !prev.showEditor,
+    }));
+  };
 
-  const setContentHtmlHandler = (content) => {
+  const setContentHtmlHandler = content => {
     setState(prev => ({
       ...prev,
-      content
-    }))
-  }
+      content,
+    }));
+  };
 
   return (
     <>
@@ -127,7 +128,7 @@ const App = () => {
         state.showEditor &&
         <Modal onClose={triggerModal}>
           <DraftEditor
-            //TODO: need to get currunt state
+            // TODO: need to get currunt state
             editorState={state.content}
             setEditorState={setContentHtmlHandler}
           />

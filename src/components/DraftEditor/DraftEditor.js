@@ -1,11 +1,12 @@
-import "./DraftEditor.css";
+/* eslint-disable react/prop-types */
+import React, { useEffect, useRef } from 'react';
+import { Editor } from 'draft-js';
 
-import React, { useEffect, useRef } from "react";
-import { Editor } from "draft-js";
-import Toolbar from "./Toolbar/Toolbar";
+import Toolbar from './Toolbar/Toolbar';
+
+import './DraftEditor.css';
 
 const DraftEditor = ({ editorState, setEditorState }) => {
-
   const editor = useRef(null);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const DraftEditor = ({ editorState, setEditorState }) => {
           ref={editor}
           placeholder="Write Here"
           editorState={editorState}
-          onChange={(editorState) => {
+          onChange={editorState => {
             setEditorState(editorState);
           }}
         />

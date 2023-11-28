@@ -1,14 +1,16 @@
-import React from 'react';
+/* eslint-disable new-cap */
+/* eslint-disable react/prop-types */
+import React, { forwardRef } from 'react';
+import ReactHtmlParser from 'react-html-parser';
 
 import Page from '../Page/Page';
 import Draggable from '../UI/Draggable/Draggable';
 
-import ReactHtmlParser from 'react-html-parser';
 import { convertEditorStateToHtml } from '../../helpers/editor';
 
 import classes from './ComponentToPrint.module.css';
 
-const ComponentToPrint = React.forwardRef((props, ref) => {
+const ComponentToPrint = forwardRef((props, ref) => {
   const {
     pageSize,
     imageSourse,
@@ -16,10 +18,10 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
     draggableSize,
   } = props.printSettings;
 
-  const htmlContent = convertEditorStateToHtml(props.content)
+  const htmlContent = convertEditorStateToHtml(props.content);
 
   return (
-    <div  className={classes.componentToPrintWrapper}>
+    <div className={classes.componentToPrintWrapper}>
       <div ref={ref}>
         <Page
           state={pageSize}
@@ -41,5 +43,7 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
     </div>
   );
 });
+
+ComponentToPrint.displayName = 'ComponentToPrint';
 
 export default ComponentToPrint;

@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
+
 import classes from './InputNumber.module.css';
 
 const InputNumber = ({ name, label, value = '', onChangeDraggableSize }) => (
@@ -9,7 +12,7 @@ const InputNumber = ({ name, label, value = '', onChangeDraggableSize }) => (
       name={name}
       value={value}
       className={classes.input}
-      onChange={(e) => onChangeDraggableSize(e.target.value, name)}
+      onChange={e => onChangeDraggableSize(e.target.value, name)}
     />
   </div>
 );

@@ -1,7 +1,11 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
+
 import classes from './Page.module.css';
+
 import watarmarkImg from '../../assets/watermark_small.png';
 
-const Page = (props) => {
+const Page = props => {
   const {
     state,
     children,
@@ -11,7 +15,7 @@ const Page = (props) => {
 
   const style = {
     background: `url(${watarmarkImg})`,
-  }
+  };
 
   if (!showWatermark) {
     delete style.background;
@@ -32,7 +36,7 @@ const Page = (props) => {
       />
       {children}
     </div>
-  )
+  );
 };
 
 export default Page;

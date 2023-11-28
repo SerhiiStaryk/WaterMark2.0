@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/WaterMark2.0/static/css/main.d7ea6e8e.css",
-    "main.js": "/WaterMark2.0/static/js/main.b34f465e.js",
-    "static/js/236.5c444214.chunk.js": "/WaterMark2.0/static/js/236.5c444214.chunk.js",
-    "static/js/703.a5383dc4.chunk.js": "/WaterMark2.0/static/js/703.a5383dc4.chunk.js",
-    "static/js/142.291ae34e.chunk.js": "/WaterMark2.0/static/js/142.291ae34e.chunk.js",
-    "static/js/787.be0071e7.chunk.js": "/WaterMark2.0/static/js/787.be0071e7.chunk.js",
+    "main.css": "/WaterMark2.0/static/css/main.f5fca49a.css",
+    "main.js": "/WaterMark2.0/static/js/main.cff15389.js",
+    "static/js/236.bd017b25.chunk.js": "/WaterMark2.0/static/js/236.bd017b25.chunk.js",
+    "static/js/703.006c3afd.chunk.js": "/WaterMark2.0/static/js/703.006c3afd.chunk.js",
+    "static/js/198.5697d968.chunk.js": "/WaterMark2.0/static/js/198.5697d968.chunk.js",
+    "static/js/787.e0ba852e.chunk.js": "/WaterMark2.0/static/js/787.e0ba852e.chunk.js",
     "static/media/uploadImg.png": "/WaterMark2.0/static/media/uploadImg.70aaf2fe778a711dc751.png",
     "static/media/watermark_small.png": "/WaterMark2.0/static/media/watermark_small.272a54d235ccff4be377.png",
     "index.html": "/WaterMark2.0/index.html",
-    "main.d7ea6e8e.css.map": "/WaterMark2.0/static/css/main.d7ea6e8e.css.map",
-    "main.b34f465e.js.map": "/WaterMark2.0/static/js/main.b34f465e.js.map",
-    "236.5c444214.chunk.js.map": "/WaterMark2.0/static/js/236.5c444214.chunk.js.map",
-    "703.a5383dc4.chunk.js.map": "/WaterMark2.0/static/js/703.a5383dc4.chunk.js.map",
-    "142.291ae34e.chunk.js.map": "/WaterMark2.0/static/js/142.291ae34e.chunk.js.map",
-    "787.be0071e7.chunk.js.map": "/WaterMark2.0/static/js/787.be0071e7.chunk.js.map"
+    "main.f5fca49a.css.map": "/WaterMark2.0/static/css/main.f5fca49a.css.map",
+    "main.cff15389.js.map": "/WaterMark2.0/static/js/main.cff15389.js.map",
+    "236.bd017b25.chunk.js.map": "/WaterMark2.0/static/js/236.bd017b25.chunk.js.map",
+    "703.006c3afd.chunk.js.map": "/WaterMark2.0/static/js/703.006c3afd.chunk.js.map",
+    "198.5697d968.chunk.js.map": "/WaterMark2.0/static/js/198.5697d968.chunk.js.map",
+    "787.e0ba852e.chunk.js.map": "/WaterMark2.0/static/js/787.e0ba852e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7ea6e8e.css",
-    "static/js/main.b34f465e.js"
+    "static/css/main.f5fca49a.css",
+    "static/js/main.cff15389.js"
   ]
 }

@@ -84,7 +84,7 @@ const Sidebar = ({
         labelOff='Приховати водяний знак'
       />
 
-      <p className='sidebar-version-app'>Версія 2.4.1.</p>
+      <p className='sidebar-version-app'>Версія 2.4.2.</p>
     </Menu>
   );
 };

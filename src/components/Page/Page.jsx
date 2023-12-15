@@ -9,10 +9,9 @@ const Page = props => {
   const {
     state,
     children,
-    imageSourse,
   } = props;
 
-  const { showWatermark } = useContext(AppContext);
+  const { imageSourse, showWatermark } = useContext(AppContext);
 
   const style = {
     background: `url(${watarmarkImg})`,

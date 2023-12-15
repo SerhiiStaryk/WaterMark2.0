@@ -1,21 +1,22 @@
 /* eslint-disable new-cap */
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 
 import Page from '../Page/Page';
 import Draggable from '../UI/Draggable/Draggable';
 
 import { convertEditorStateToHtml } from '../../helpers/editor';
+import { AppContext } from '../../store/app-context';
 
 import classes from './ComponentToPrint.module.css';
 
 const ComponentToPrint = forwardRef((props, ref) => {
   const {
     pageSize,
-    imageSourse,
-    showDraggable,
     draggableSize,
   } = props.printSettings;
+
+  const { showDraggable } = useContext(AppContext);
 
   const htmlContent = convertEditorStateToHtml(props.content);
 
@@ -24,7 +25,6 @@ const ComponentToPrint = forwardRef((props, ref) => {
       <div ref={ref}>
         <Page
           state={pageSize}
-          imageSourse={imageSourse}
           style={{ position: 'relative', width: `${pageSize.width}cm`, height: `${pageSize.height}cm` }}
         >
           {

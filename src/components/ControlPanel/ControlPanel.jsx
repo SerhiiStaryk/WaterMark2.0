@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import Pdf from 'react-to-pdf';
 import ReactToPrint from 'react-to-print';
 import { BiPrinter, BiRotateLeft, BiSolidFilePdf, BiPencil } from 'react-icons/bi';
 
+import { AppContext } from '../../store/app-context';
 import Button from '../UI/Button/Button';
 
 import classes from './ControlPanel.module.css';
 
-const ControlPanel = ({ onResetApp, componentRef, options, onEdit }) => {
+const ControlPanel = ({ componentRef, options, onEdit }) => {
+  const { resetApp } = useContext(AppContext);
+
   const renderButtonPrint = () => (
     <Button title='Друк сторінки' onClick={() => window.print()}>
       <BiPrinter className={classes.btn} />
@@ -23,7 +26,7 @@ const ControlPanel = ({ onResetApp, componentRef, options, onEdit }) => {
 
   return (
     <div className={classes['control-panel']}>
-      <Button title='Оновити' onClick={onResetApp}>
+      <Button title='Оновити' onClick={resetApp}>
         <BiRotateLeft className={classes.btn} />
       </Button>
 

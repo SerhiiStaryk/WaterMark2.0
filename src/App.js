@@ -15,13 +15,8 @@ import AppContextProvider from './store/app-context';
 
 const App = () => {
   const initialState = {
-    showEditor: false,
-    imageSourse: null,
-    showDraggable: true,
-    selectedFileName: '',
     pageSize: PAGE_OPTIONS[3],
     selectedTemplate: TEMPLATE_OPTIONS[0],
-    draggableSize: { width: 8, height: 4 },
     optionForPdf: {
       orientation: 'landscape',
       unit: 'cm',
@@ -32,42 +27,13 @@ const App = () => {
 
   const [state, setState] = useState(initialState);
 
+  const [showModal, setShowModal] = useState(false);
+
   const printSettings = {
     pageSize: state.pageSize.value,
-    imageSourse: state.imageSourse,
-    showDraggable: state.showDraggable,
-    draggableSize: state.draggableSize,
   };
 
   const componentRef = useRef(printSettings);
-
-  const changeDraggableSizeHandler = (value, name) => {
-    setState(prev => ({
-      ...prev,
-      draggableSize: {
-        ...prev.draggableSize,
-        [name]: +value,
-      },
-    }));
-  };
-
-  const showDraggableHandler = () => {
-    setState(prev => ({
-      ...prev,
-      showDraggable: !prev.showDraggable,
-    }));
-  };
-
-  const changeBackgroundHandler = e => {
-    const file = e.target.files[0];
-    const url = URL.createObjectURL(file);
-
-    setState(prev => ({
-      ...prev,
-      imageSourse: url,
-      selectedFileName: file.name,
-    }));
-  };
 
   const changePageHandler = selectedOption => {
     const { label, value } = selectedOption;
@@ -93,17 +59,6 @@ const App = () => {
     }));
   };
 
-  const resetAppHandler = () => {
-    setState(initialState);
-  };
-
-  const triggerModal = () => {
-    setState(prev => ({
-      ...prev,
-      showEditor: !prev.showEditor,
-    }));
-  };
-
   const setContentHtmlHandler = content => {
     setState(prev => ({
       ...prev,
@@ -111,11 +66,15 @@ const App = () => {
     }));
   };
 
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <AppContextProvider>
       {
-        state.showEditor &&
-        <Modal onClose={triggerModal}>
+        showModal &&
+        <Modal onClose={handleShowModal}>
           <DraftEditor
             // TODO: need to get currunt state
             editorState={state.content}
@@ -125,18 +84,12 @@ const App = () => {
       }
 
       <Sidebar
-        pageOptions={PAGE_OPTIONS}
-        templateOptions={TEMPLATE_OPTIONS}
         selectedPage={state.pageSize}
-        showDraggable={state.showDraggable}
-        draggableSize={state.draggableSize}
+        templateOptions={TEMPLATE_OPTIONS}
         selectedTemplate={state.selectedTemplate}
         selectedFileName={state.selectedFileName}
         onChangePage={changePageHandler}
-        onShowDraggable={showDraggableHandler}
         onChangeTemplate={changeTemplateHandler}
-        onChangeBackground={changeBackgroundHandler}
-        onChangeDraggableSize={changeDraggableSizeHandler}
       />
 
       <main className='main'>
@@ -151,9 +104,8 @@ const App = () => {
       <Footer />
 
       <ControlPanel
+        onEdit={handleShowModal}
         componentRef={componentRef}
-        onResetApp={resetAppHandler}
-        onEdit={triggerModal}
       />
     </AppContextProvider>
   );

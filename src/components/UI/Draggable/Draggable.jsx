@@ -1,18 +1,20 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
+import { AppContext } from '../../../store/app-context';
 import classes from './Draggable.module.css';
 
 const Draggable = (
   {
     children,
-    draggableSize,
     parentWidthInCm,
     parentHeightInCm,
   }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
+
+  const { draggableSize } = useContext(AppContext);
 
   const handleMouseDown = e => {
     setIsDragging(true);

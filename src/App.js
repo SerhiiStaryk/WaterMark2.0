@@ -11,13 +11,13 @@ import ControlPanel from './components/ControlPanel/ControlPanel';
 import ComponentToPrint from './components/ComponentToPrint/ComponentToPrint';
 
 import { createEditorState } from './helpers/editor';
+import AppContextProvider from './store/app-context';
 
 const App = () => {
   const initialState = {
     showEditor: false,
     imageSourse: null,
     showDraggable: true,
-    showWatermark: true,
     selectedFileName: '',
     pageSize: PAGE_OPTIONS[3],
     selectedTemplate: TEMPLATE_OPTIONS[0],
@@ -55,13 +55,6 @@ const App = () => {
     setState(prev => ({
       ...prev,
       showDraggable: !prev.showDraggable,
-    }));
-  };
-
-  const showWaterMarkHandler = () => {
-    setState(prev => ({
-      ...prev,
-      showWatermark: !prev.showWatermark,
     }));
   };
 
@@ -104,10 +97,6 @@ const App = () => {
     setState(initialState);
   };
 
-  const printHandler = () => {
-    window.print();
-  };
-
   const triggerModal = () => {
     setState(prev => ({
       ...prev,
@@ -123,7 +112,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <AppContextProvider>
       {
         state.showEditor &&
         <Modal onClose={triggerModal}>
@@ -140,13 +129,11 @@ const App = () => {
         templateOptions={TEMPLATE_OPTIONS}
         selectedPage={state.pageSize}
         showDraggable={state.showDraggable}
-        showWatermark={state.showWatermark}
         draggableSize={state.draggableSize}
         selectedTemplate={state.selectedTemplate}
         selectedFileName={state.selectedFileName}
         onChangePage={changePageHandler}
         onShowDraggable={showDraggableHandler}
-        onShowWaterMark={showWaterMarkHandler}
         onChangeTemplate={changeTemplateHandler}
         onChangeBackground={changeBackgroundHandler}
         onChangeDraggableSize={changeDraggableSizeHandler}
@@ -157,7 +144,6 @@ const App = () => {
           ref={componentRef}
           content={state.content}
           printSettings={printSettings}
-          showWatermark={state.showWatermark}
           template={state.selectedTemplate.value}
         />
       </main>
@@ -165,13 +151,11 @@ const App = () => {
       <Footer />
 
       <ControlPanel
-        options={state.optionForPdf}
         componentRef={componentRef}
-        onPrint={printHandler}
         onResetApp={resetAppHandler}
         onEdit={triggerModal}
       />
-    </>
+    </AppContextProvider>
   );
 };
 

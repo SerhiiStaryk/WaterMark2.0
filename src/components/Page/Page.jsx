@@ -1,17 +1,18 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 
 import classes from './Page.module.css';
 
 import watarmarkImg from '../../assets/watermark_small.png';
+import { AppContext } from '../../store/app-context';
 
 const Page = props => {
   const {
     state,
     children,
     imageSourse,
-    showWatermark,
   } = props;
+
+  const { showWatermark } = useContext(AppContext);
 
   const style = {
     background: `url(${watarmarkImg})`,

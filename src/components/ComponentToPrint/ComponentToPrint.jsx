@@ -1,5 +1,4 @@
 /* eslint-disable new-cap */
-/* eslint-disable react/prop-types */
 import React, { forwardRef } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 
@@ -26,7 +25,6 @@ const ComponentToPrint = forwardRef((props, ref) => {
         <Page
           state={pageSize}
           imageSourse={imageSourse}
-          showWatermark={props.showWatermark}
           style={{ position: 'relative', width: `${pageSize.width}cm`, height: `${pageSize.height}cm` }}
         >
           {

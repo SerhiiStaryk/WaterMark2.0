@@ -5,17 +5,18 @@ import ReactToPrint from 'react-to-print';
 import { BiPrinter, BiRotateLeft, BiSolidFilePdf, BiPencil } from 'react-icons/bi';
 
 import Button from '../UI/Button/Button';
+
 import classes from './ControlPanel.module.css';
 
-const ControlPanel = ({ onPrint, onResetApp, componentRef, options, onEdit }) => {
-  const renderButtonPrint = onPrint => (
-    <Button title='Друк сторінки' onClick={onPrint}>
+const ControlPanel = ({ onResetApp, componentRef, options, onEdit }) => {
+  const renderButtonPrint = () => (
+    <Button title='Друк сторінки' onClick={() => window.print()}>
       <BiPrinter className={classes.btn} />
     </Button>
   );
 
-  const renderButtonSaveToPdf = onClick => (
-    <Button title='Зберегти у PDF' onClick={onClick}>
+  const renderButtonSaveToPdf = toPdf => (
+    <Button title='Зберегти у PDF' onClick={toPdf}>
       <BiSolidFilePdf className={classes.btn} />
     </Button>
   );
@@ -35,7 +36,7 @@ const ControlPanel = ({ onPrint, onResetApp, componentRef, options, onEdit }) =>
       </Pdf>
 
       <ReactToPrint
-        trigger={() => renderButtonPrint(onPrint)}
+        trigger={() => renderButtonPrint()}
         content={() => componentRef.current}
       />
     </div>

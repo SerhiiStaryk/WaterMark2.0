@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import { slide as Menu } from 'react-burger-menu';
+
+import { AppContext } from '../../store/app-context';
 
 import Toggle from './Toggle/Toggle';
 import InputFile from './InputFile/InputFile';
@@ -14,18 +16,18 @@ const Sidebar = ({
   selectedPage,
   draggableSize,
   showDraggable,
-  showWatermark,
   templateOptions,
   selectedTemplate,
   selectedFileName,
   onChangePage,
   onShowDraggable,
-  onShowWaterMark,
   onChangeTemplate,
   onChangeBackground,
   onChangeDraggableSize,
 
 }) => {
+  const { showWatermark, setShowWatermark } = useContext(AppContext);
+
   return (
     <Menu className='sidebar'>
       <InputFile
@@ -79,7 +81,7 @@ const Sidebar = ({
       <Toggle
         id='water-wark-toggle'
         isOn={showWatermark}
-        onChange={onShowWaterMark}
+        onChange={setShowWatermark}
         labelOn='Показати водяний знак'
         labelOff='Приховати водяний знак'
       />

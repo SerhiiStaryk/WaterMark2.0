@@ -1,6 +1,9 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import { slide as Menu } from 'react-burger-menu';
+
+import { PAGE_OPTIONS } from '../../constants/page';
+import { AppContext } from '../../store/app-context';
+import { TEMPLATE_OPTIONS } from '../../constants/editor';
 
 import Toggle from './Toggle/Toggle';
 import InputFile from './InputFile/InputFile';
@@ -11,41 +14,37 @@ import './Sidebar.css';
 
 const Sidebar = ({
   pageOptions,
-  selectedPage,
-  draggableSize,
-  showDraggable,
-  showWatermark,
-  templateOptions,
-  selectedTemplate,
-  selectedFileName,
   onChangePage,
-  onShowDraggable,
-  onShowWaterMark,
   onChangeTemplate,
-  onChangeBackground,
-  onChangeDraggableSize,
-
 }) => {
+  const {
+    pageSize,
+    draggableSize,
+    showWatermark,
+    showDraggable,
+    selectedTemplate,
+    changePage,
+    changeTemplate,
+    setShowWatermark,
+    setShowDraggable,
+  } = useContext(AppContext);
+
   return (
     <Menu className='sidebar'>
-      <InputFile
-        selectedFileName={selectedFileName}
-        onChangeBackground={onChangeBackground}
-      />
-
+      <InputFile />
       <SelectContainer
+        onChange={changePage}
         label='Формат аркуша:'
-        options={pageOptions}
-        onChange={onChangePage}
-        selectedOption={selectedPage}
+        options={PAGE_OPTIONS}
+        selectedOption={pageSize}
       />
 
       <Toggle
         id='draggable-togle'
         isOn={showDraggable}
-        onChange={onShowDraggable}
         labelOn='Показати картку'
         labelOff='Приховати картку'
+        onChange={setShowDraggable}
       />
 
       {
@@ -53,8 +52,8 @@ const Sidebar = ({
         <>
           <SelectContainer
             label='Шаблон картки:'
-            options={templateOptions}
-            onChange={onChangeTemplate}
+            onChange={changeTemplate}
+            options={TEMPLATE_OPTIONS}
             selectedOption={selectedTemplate}
           />
 
@@ -63,7 +62,6 @@ const Sidebar = ({
             type='number'
             label='Ширина картки (см)'
             value={draggableSize.width}
-            onChangeDraggableSize={onChangeDraggableSize}
           />
 
           <InputNumber
@@ -71,20 +69,19 @@ const Sidebar = ({
             type='number'
             label='Висота картки (см)'
             value={draggableSize.height}
-            onChangeDraggableSize={onChangeDraggableSize}
           />
         </>
       }
 
       <Toggle
-        id='water-wark-toggle'
         isOn={showWatermark}
-        onChange={onShowWaterMark}
+        id='water-wark-toggle'
+        onChange={setShowWatermark}
         labelOn='Показати водяний знак'
         labelOff='Приховати водяний знак'
       />
 
-      <p className='sidebar-version-app'>Версія 2.4.1.</p>
+      <p className='sidebar-version-app'>Версія 2.4.2.</p>
     </Menu>
   );
 };

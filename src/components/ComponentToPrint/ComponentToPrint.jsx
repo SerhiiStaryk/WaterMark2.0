@@ -1,39 +1,35 @@
 /* eslint-disable new-cap */
-/* eslint-disable react/prop-types */
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 
 import Page from '../Page/Page';
 import Draggable from '../UI/Draggable/Draggable';
 
+import { AppContext } from '../../store/app-context';
 import { convertEditorStateToHtml } from '../../helpers/editor';
 
 import classes from './ComponentToPrint.module.css';
 
 const ComponentToPrint = forwardRef((props, ref) => {
   const {
+    content,
     pageSize,
-    imageSourse,
     showDraggable,
-    draggableSize,
-  } = props.printSettings;
+  } = useContext(AppContext);
 
-  const htmlContent = convertEditorStateToHtml(props.content);
+  const htmlContent = convertEditorStateToHtml(content);
+
+  const { width, height } = pageSize.value;
 
   return (
     <div className={classes.componentToPrintWrapper}>
       <div ref={ref}>
-        <Page
-          state={pageSize}
-          imageSourse={imageSourse}
-          showWatermark={props.showWatermark}
-          style={{ position: 'relative', width: `${pageSize.width}cm`, height: `${pageSize.height}cm` }}
-        >
+        <Page style={{ position: 'relative', width: `${width}cm`, height: `${height}cm` }}>
           {
-            showDraggable && <Draggable
-              draggableSize={draggableSize}
-              parentWidthInCm={pageSize.width}
-              parentHeightInCm={pageSize.height}
+            showDraggable &&
+            <Draggable
+              parentWidthInCm={width}
+              parentHeightInCm={height}
             >
               {ReactHtmlParser(htmlContent)}
             </Draggable>

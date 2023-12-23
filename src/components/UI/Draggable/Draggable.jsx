@@ -15,6 +15,7 @@ const Draggable = (
   const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
 
   const { draggableSize } = useContext(AppContext);
+  const { width, height } = draggableSize;
 
   const handleMouseDown = e => {
     setIsDragging(true);
@@ -28,14 +29,14 @@ const Draggable = (
 
       // Calculate the new position in centimeters
       // Convert pixels to centimeters
-      let newPositionX = position.x + (offsetX / 96) * draggableSize.width;
+      let newPositionX = position.x + (offsetX / 96) * width;
       // Convert pixels to centimeters
-      let newPositionY = position.y + (offsetY / 96) * draggableSize.height;
+      let newPositionY = position.y + (offsetY / 96) * height;
 
       // Limit the X-coordinate within the parent width
-      newPositionX = Math.max(0, Math.min(newPositionX, parentWidthInCm - draggableSize.width));
+      newPositionX = Math.max(0, Math.min(newPositionX, parentWidthInCm - width));
       // Limit the Y-coordinate within the parent height
-      newPositionY = Math.max(0, Math.min(newPositionY, parentHeightInCm - draggableSize.height));
+      newPositionY = Math.max(0, Math.min(newPositionY, parentHeightInCm - height));
 
       setPosition({ x: newPositionX, y: newPositionY });
       setStartPosition({ x: e.clientX, y: e.clientY });

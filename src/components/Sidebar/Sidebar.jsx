@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 
-import { AppContext } from '../../store/app-context';
 import { PAGE_OPTIONS } from '../../constants/page';
+import { AppContext } from '../../store/app-context';
+import { TEMPLATE_OPTIONS } from '../../constants/editor';
 
 import Toggle from './Toggle/Toggle';
 import InputFile from './InputFile/InputFile';
@@ -14,9 +14,6 @@ import './Sidebar.css';
 
 const Sidebar = ({
   pageOptions,
-  templateOptions,
-  selectedTemplate,
-  selectedFileName,
   onChangePage,
   onChangeTemplate,
 }) => {
@@ -25,6 +22,9 @@ const Sidebar = ({
     draggableSize,
     showWatermark,
     showDraggable,
+    selectedTemplate,
+    changePage,
+    changeTemplate,
     setShowWatermark,
     setShowDraggable,
   } = useContext(AppContext);
@@ -33,18 +33,18 @@ const Sidebar = ({
     <Menu className='sidebar'>
       <InputFile />
       <SelectContainer
+        onChange={changePage}
         label='Формат аркуша:'
         options={PAGE_OPTIONS}
-        onChange={onChangePage}
         selectedOption={pageSize}
       />
 
       <Toggle
         id='draggable-togle'
         isOn={showDraggable}
-        onChange={setShowDraggable}
         labelOn='Показати картку'
         labelOff='Приховати картку'
+        onChange={setShowDraggable}
       />
 
       {
@@ -52,8 +52,8 @@ const Sidebar = ({
         <>
           <SelectContainer
             label='Шаблон картки:'
-            options={templateOptions}
-            onChange={onChangeTemplate}
+            onChange={changeTemplate}
+            options={TEMPLATE_OPTIONS}
             selectedOption={selectedTemplate}
           />
 
@@ -74,8 +74,8 @@ const Sidebar = ({
       }
 
       <Toggle
-        id='water-wark-toggle'
         isOn={showWatermark}
+        id='water-wark-toggle'
         onChange={setShowWatermark}
         labelOn='Показати водяний знак'
         labelOff='Приховати водяний знак'

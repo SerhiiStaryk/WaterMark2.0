@@ -9,8 +9,12 @@ import Button from '../UI/Button/Button';
 
 import classes from './ControlPanel.module.css';
 
-const ControlPanel = ({ componentRef, options, onEdit }) => {
-  const { resetApp } = useContext(AppContext);
+const ControlPanel = ({ targetRef, onEdit }) => {
+  const { resetApp, optionForPdf } = useContext(AppContext);
+
+  console.log('!componentRef', targetRef);
+  console.log('!optionForPdf', optionForPdf);
+
 
   const renderButtonPrint = () => (
     <Button title='Друк сторінки' onClick={() => window.print()}>
@@ -24,6 +28,7 @@ const ControlPanel = ({ componentRef, options, onEdit }) => {
     </Button>
   );
 
+
   return (
     <div className={classes['control-panel']}>
       <Button title='Оновити' onClick={resetApp}>
@@ -34,13 +39,13 @@ const ControlPanel = ({ componentRef, options, onEdit }) => {
         <BiPencil className={classes.btn} />
       </Button>
 
-      <Pdf targetRef={componentRef} filename="water-mark-copy.pdf" options={options}>
+      <Pdf targetRef={targetRef} filename="water-mark-copy.pdf" options={optionForPdf}>
         {({ toPdf }) => renderButtonSaveToPdf(toPdf)}
       </Pdf>
 
       <ReactToPrint
         trigger={() => renderButtonPrint()}
-        content={() => componentRef.current}
+        content={() => targetRef.current}
       />
     </div>
   );

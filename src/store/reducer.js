@@ -17,15 +17,15 @@ export const initialState = {
   optionForPdf: {
     unit: 'cm',
     format: [21, 29.7],
-    orientation: 'landscape',
-  },
+    orientation: 'landscape'
+  }
 };
 
 const appReducer = (state, action) => {
   if (action.type === A.setShowWatermark) {
     return {
       ...state,
-      showWatermark: !state.showWatermark,
+      showWatermark: !state.showWatermark
     };
   }
 
@@ -35,14 +35,14 @@ const appReducer = (state, action) => {
     return {
       ...state,
       selectedFileName: file.name,
-      imageSourse: URL.createObjectURL(file),
+      imageSourse: URL.createObjectURL(file)
     };
   }
 
   if (action.type === A.setShowDraggable) {
     return {
       ...state,
-      showDraggable: !state.showDraggable,
+      showDraggable: !state.showDraggable
     };
   }
 
@@ -53,8 +53,8 @@ const appReducer = (state, action) => {
       ...state,
       draggableSize: {
         ...state.draggableSize,
-        [name]: +value,
-      },
+        [name]: +value
+      }
     };
   }
 
@@ -68,14 +68,14 @@ const appReducer = (state, action) => {
     const newOptionForPdf = {
       orientation: label.includes('landscape') ? 'landscape' : 'portrait',
       unit: 'cm',
-      format: [value.height, value.width],
+      format: [value.height, value.width]
     };
 
 
     return {
       ...state,
       pageSize: action.payload,
-      optionForPdf: newOptionForPdf,
+      optionForPdf: newOptionForPdf
     };
   }
 
@@ -85,14 +85,14 @@ const appReducer = (state, action) => {
     return {
       ...state,
       content: newContent,
-      selectedTemplate: action.payload,
+      selectedTemplate: action.payload
     };
   }
 
   if (action.type === A.setContentHtml) {
     return {
       ...state,
-      content: action.payload,
+      content: action.payload
     };
   }
 

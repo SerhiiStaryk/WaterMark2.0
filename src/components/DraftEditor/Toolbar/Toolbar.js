@@ -1,10 +1,6 @@
 import React, { useContext } from 'react';
 import { RichUtils } from 'draft-js';
-import {
-  FaBold,
-  FaItalic,
-  FaUnderline,
-} from 'react-icons/fa';
+import { FaBold, FaItalic, FaUnderline } from 'react-icons/fa';
 
 import { AppContext } from '../../../store/app-context';
 
@@ -16,20 +12,20 @@ const Toolbar = ({ setEditorState }) => {
       label: 'bold',
       style: 'BOLD',
       icon: <FaBold />,
-      method: 'inline',
+      method: 'inline'
     },
     {
       label: 'italic',
       style: 'ITALIC',
       icon: <FaItalic />,
-      method: 'inline',
+      method: 'inline'
     },
     {
       label: 'underline',
       style: 'UNDERLINE',
       icon: <FaUnderline />,
-      method: 'inline',
-    },
+      method: 'inline'
+    }
   ];
 
   const applyStyle = (e, style, method) => {
@@ -60,7 +56,7 @@ const Toolbar = ({ setEditorState }) => {
           style={{
             color: isActive(item.style, item.method)
               ? 'rgba(0, 0, 0, 1)'
-              : 'rgba(0, 0, 0, 0.3)',
+              : 'rgba(0, 0, 0, 0.3)'
           }}
           key={`${item.label}-${idx}`}
           title={item.label}

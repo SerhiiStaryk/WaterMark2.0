@@ -15,7 +15,7 @@ import './Sidebar.css';
 const Sidebar = ({
   pageOptions,
   onChangePage,
-  onChangeTemplate,
+  onChangeTemplate
 }) => {
   const {
     pageSize,
@@ -26,7 +26,7 @@ const Sidebar = ({
     changePage,
     changeTemplate,
     setShowWatermark,
-    setShowDraggable,
+    setShowDraggable
   } = useContext(AppContext);
 
   return (
@@ -81,7 +81,7 @@ const Sidebar = ({
         labelOff='Приховати водяний знак'
       />
 
-      <p className='sidebar-version-app'>Версія 2.4.2.</p>
+      <p className='sidebar-version-app'>Версія 2.5.0</p>
     </Menu>
   );
 };

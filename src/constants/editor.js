@@ -6,7 +6,7 @@ export const _500_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '1',
@@ -15,7 +15,7 @@ export const _500_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '2',
@@ -24,7 +24,7 @@ export const _500_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '3',
@@ -33,7 +33,7 @@ export const _500_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '4',
@@ -42,7 +42,7 @@ export const _500_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '5',
@@ -53,12 +53,12 @@ export const _500_TEMPLATE = [
       {
         offset: 0,
         length: 14,
-        style: 'BOLD',
-      },
+        style: 'BOLD'
+      }
     ],
     entityRanges: [],
-    data: {},
-  },
+    data: {}
+  }
 ];
 
 export const _500_TEMPLATE_CAD = [
@@ -69,7 +69,7 @@ export const _500_TEMPLATE_CAD = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '1',
@@ -78,7 +78,7 @@ export const _500_TEMPLATE_CAD = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '2',
@@ -87,7 +87,7 @@ export const _500_TEMPLATE_CAD = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '3',
@@ -96,7 +96,7 @@ export const _500_TEMPLATE_CAD = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '4',
@@ -105,7 +105,7 @@ export const _500_TEMPLATE_CAD = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '5',
@@ -114,7 +114,7 @@ export const _500_TEMPLATE_CAD = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '6',
@@ -125,12 +125,12 @@ export const _500_TEMPLATE_CAD = [
       {
         offset: 0,
         length: 14,
-        style: 'BOLD',
-      },
+        style: 'BOLD'
+      }
     ],
     entityRanges: [],
-    data: {},
-  },
+    data: {}
+  }
 ];
 
 export const _2000_TEMPLATE = [
@@ -141,7 +141,7 @@ export const _2000_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '1',
@@ -150,7 +150,7 @@ export const _2000_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '2',
@@ -159,7 +159,7 @@ export const _2000_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '3',
@@ -168,7 +168,7 @@ export const _2000_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '4',
@@ -177,7 +177,7 @@ export const _2000_TEMPLATE = [
     depth: 0,
     inlineStyleRanges: [],
     entityRanges: [],
-    data: {},
+    data: {}
   },
   {
     key: '5',
@@ -188,16 +188,16 @@ export const _2000_TEMPLATE = [
       {
         offset: 0,
         length: 14,
-        style: 'BOLD',
-      },
+        style: 'BOLD'
+      }
     ],
     entityRanges: [],
-    data: {},
-  },
+    data: {}
+  }
 ];
 
 export const TEMPLATE_OPTIONS = [
   { label: '500', value: _500_TEMPLATE },
   { label: '500_CAD', value: _500_TEMPLATE_CAD },
-  { label: '2000', value: _2000_TEMPLATE },
+  { label: '2000', value: _2000_TEMPLATE }
 ];

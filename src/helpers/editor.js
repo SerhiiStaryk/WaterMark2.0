@@ -1,15 +1,11 @@
-import {
-  EditorState,
-  convertToRaw,
-  convertFromRaw,
-} from 'draft-js';
+import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
 
 export const createEditorState = blocks => EditorState.createWithContent(
   convertFromRaw({
     blocks,
-    entityMap: {},
-  }),
+    entityMap: {}
+  })
 );
 
 export const getCurrentContentState = editorState =>

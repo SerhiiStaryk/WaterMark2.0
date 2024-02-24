@@ -11,11 +11,7 @@ import { convertEditorStateToHtml } from '../../helpers/editor';
 import classes from './ComponentToPrint.module.css';
 
 const ComponentToPrint = forwardRef((props, ref) => {
-  const {
-    content,
-    pageSize,
-    showDraggable,
-  } = useContext(AppContext);
+  const { content, pageSize, showDraggable } = useContext(AppContext);
 
   const htmlContent = convertEditorStateToHtml(content);
 
@@ -25,15 +21,14 @@ const ComponentToPrint = forwardRef((props, ref) => {
     <div className={classes.componentToPrintWrapper}>
       <div ref={ref}>
         <Page style={{ position: 'relative', width: `${width}cm`, height: `${height}cm` }}>
-          {
-            showDraggable &&
+          {showDraggable && (
             <Draggable
               parentWidthInCm={width}
               parentHeightInCm={height}
             >
               {ReactHtmlParser(htmlContent)}
             </Draggable>
-          }
+          )}
         </Page>
       </div>
     </div>

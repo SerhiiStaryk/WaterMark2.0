@@ -7,8 +7,6 @@ import DraftEditor from './components/DraftEditor/DraftEditor';
 import ControlPanel from './components/ControlPanel/ControlPanel';
 import ComponentToPrint from './components/ComponentToPrint/ComponentToPrint';
 
-import AppContextProvider from './store/app-context';
-
 const App = () => {
   const [showModal, setShowModal] = useState(false);
   const targetRef = useRef();
@@ -18,12 +16,22 @@ const App = () => {
   };
 
   return (
-    <AppContextProvider>{showModal && <Modal onClose={handleShowModal}><DraftEditor /></Modal>}
+    <React.Fragment>
+      {showModal && (
+        <Modal onClose={handleShowModal}>
+          <DraftEditor />
+        </Modal>
+      )}
       <Sidebar />
-      <main className='main'><ComponentToPrint ref={targetRef} /></main>
+      <main className='main'>
+        <ComponentToPrint ref={targetRef} />
+      </main>
       <Footer />
-      <ControlPanel onEdit={handleShowModal} targetRef={targetRef} />
-    </AppContextProvider>
+      <ControlPanel
+        targetRef={targetRef}
+        onEdit={handleShowModal}
+      />
+    </React.Fragment>
   );
 };
 

@@ -5,6 +5,7 @@
   position: fixed;
   right: 40px;
   width: 80px;
+  z-index: 6;
 }
 
 .btn {

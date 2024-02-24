@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/WaterMark2.0/static/css/main.59676f77.css",
+    "main.css": "/WaterMark2.0/static/css/main.7a43d115.css",
     "main.js": "/WaterMark2.0/static/js/main.112af71c.js",
     "static/js/236.bd017b25.chunk.js": "/WaterMark2.0/static/js/236.bd017b25.chunk.js",
     "static/js/703.006c3afd.chunk.js": "/WaterMark2.0/static/js/703.006c3afd.chunk.js",
@@ -9,7 +9,7 @@
     "static/media/uploadImg.png": "/WaterMark2.0/static/media/uploadImg.70aaf2fe778a711dc751.png",
     "static/media/watermark_small.png": "/WaterMark2.0/static/media/watermark_small.272a54d235ccff4be377.png",
     "index.html": "/WaterMark2.0/index.html",
-    "main.59676f77.css.map": "/WaterMark2.0/static/css/main.59676f77.css.map",
+    "main.7a43d115.css.map": "/WaterMark2.0/static/css/main.7a43d115.css.map",
     "main.112af71c.js.map": "/WaterMark2.0/static/js/main.112af71c.js.map",
     "236.bd017b25.chunk.js.map": "/WaterMark2.0/static/js/236.bd017b25.chunk.js.map",
     "703.006c3afd.chunk.js.map": "/WaterMark2.0/static/js/703.006c3afd.chunk.js.map",
@@ -17,7 +17,7 @@
     "787.e0ba852e.chunk.js.map": "/WaterMark2.0/static/js/787.e0ba852e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.59676f77.css",
+    "static/css/main.7a43d115.css",
     "static/js/main.112af71c.js"
   ]
 }

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 import './Toggle.css';
@@ -9,7 +8,7 @@ const Toggle = props => {
     isOn,
     labelOn,
     labelOff,
-    onChange,
+    onChange
   } = props;
 
   let label = labelOff;

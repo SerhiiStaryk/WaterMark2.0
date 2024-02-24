@@ -20,7 +20,7 @@ export const AppContext = createContext({
   setContentHtml: () => { },
   setShowWatermark: () => { },
   setShowDraggable: () => { },
-  changeDraggableSize: () => { },
+  changeDraggableSize: () => { }
 });
 
 const AppContextProvider = ({ children }) => {
@@ -28,54 +28,54 @@ const AppContextProvider = ({ children }) => {
 
   const handleSetShowWatermark = () => {
     appDispatch({
-      type: A.setShowWatermark,
+      type: A.setShowWatermark
     });
   };
 
   const handlesetShowDraggable = () => {
     appDispatch({
-      type: A.setShowDraggable,
+      type: A.setShowDraggable
     });
   };
 
   const handleSetImage = event => {
     appDispatch({
       type: A.setImage,
-      payload: event,
+      payload: event
     });
   };
 
   const handleChangeDraggableSize = (value, name) => {
     appDispatch({
       payload: { name, value },
-      type: A.changeDraggableSize,
+      type: A.changeDraggableSize
     });
   };
 
   const handleChangePage = pageSize => {
     appDispatch({
       payload: pageSize,
-      type: A.changePage,
+      type: A.changePage
     });
   };
 
   const handleChangeTemplate = templete => {
     appDispatch({
       payload: templete,
-      type: A.changeTemplate,
+      type: A.changeTemplate
     });
   };
 
   const handleSetContentHtml = content => {
     appDispatch({
       payload: content,
-      type: A.setContentHtml,
+      type: A.setContentHtml
     });
   };
 
   const handleResetApp = () => {
     appDispatch({
-      type: A.resetApp,
+      type: A.resetApp
     });
   };
 
@@ -96,7 +96,7 @@ const AppContextProvider = ({ children }) => {
     setContentHtml: handleSetContentHtml,
     setShowWatermark: handleSetShowWatermark,
     setShowDraggable: handlesetShowDraggable,
-    changeDraggableSize: handleChangeDraggableSize,
+    changeDraggableSize: handleChangeDraggableSize
   };
 
   return (

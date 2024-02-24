@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -22,7 +21,7 @@ const Modal = ({ onClose, children }) => (
   <>
     {ReactDOM.createPortal(<Backdrop onClose={onClose} />, portalElement)}
     {ReactDOM.createPortal(
-      <ModalOverlay>{children}</ModalOverlay>, portalElement,
+      <ModalOverlay>{children}</ModalOverlay>, portalElement
     )}
   </>
 );

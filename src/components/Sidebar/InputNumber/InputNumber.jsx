@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
 
 import { AppContext } from '../../../store/app-context';
@@ -11,10 +10,10 @@ const InputNumber = ({ name, label, value = '' }) => {
     <div className={classes['form-group']}>
       <label htmlFor={name}>{label}</label>
       <input
-        type='string'
         id={name}
         name={name}
         value={value}
+        type='number'
         className={classes.input}
         onChange={e => changeDraggableSize(e.target.value, name)}
       />

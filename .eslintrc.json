@@ -19,6 +19,7 @@
     "arrow-parens": ["error", "as-needed"],
     "indent": ["error", 2, { "MemberExpression": 1 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "operator-linebreak": ["error", "after", { "overrides": { "?": "ignore", ":": "ignore" } }]
+    "operator-linebreak": ["error", "after", { "overrides": { "?": "ignore", ":": "ignore" } }],
+    "comma-dangle": ["error", "never"]
   }
 }

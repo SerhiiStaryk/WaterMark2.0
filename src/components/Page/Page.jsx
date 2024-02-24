@@ -11,7 +11,7 @@ const Page = ({ children }) => {
   const { width, height } = pageSize.value;
 
   const style = {
-    background: `url(${watarmarkImg})`,
+    background: `url(${watarmarkImg})`
   };
 
   if (!showWatermark) {
@@ -24,7 +24,7 @@ const Page = ({ children }) => {
       style={{
         width: `${width}cm`,
         height: `${height}cm`,
-        background: `no-repeat center/100% 100% url(${imageSourse})`,
+        background: `no-repeat center/100% 100% url(${imageSourse})`
       }}
     >
       <div

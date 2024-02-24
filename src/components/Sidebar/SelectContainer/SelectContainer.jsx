@@ -10,7 +10,7 @@ const SelectContainer = props => {
     options,
     onChange,
     defaultValue,
-    selectedOption,
+    selectedOption
   } = props;
 
   return (
